@@ -1,4 +1,10 @@
-{{ item.imgSrc }}
+<div *ngFor="let item of items" class= "items-list">
+  <div class="item">
+    <div class="item-image">
+      <img src="{{ item.imgSrc }}">
+    </div>
 {{ item.title }}
 {{ item.price }}
 {{ item.category }}
+  </div>
+</div>

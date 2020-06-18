@@ -7,15 +7,15 @@ import { ItemService } from './item.service';
   styleUrls: ['./items-list.component.css']
 })
 export class ItemsListComponent implements OnInit {
-  item: {"imgSrc": string, "title": string, 
-  "price": string, "category": string};
+  items: {"imgSrc": string, "title": string, 
+  "price": string, "category": string}[];
 
   constructor(private itemService: ItemService) { }
 
   ngOnInit(): void {
-    console.log(this.item);
-    this.item = this.itemService.getItem();
-    console.log(this.item);
+    console.log(this.items);
+    this.items = this.itemService.getItems();
+    console.log(this.items);
   }
 
 }
