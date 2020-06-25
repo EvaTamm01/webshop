@@ -1,5 +1,5 @@
-<div *ngFor="let item of items" class= "items-list">
-  <div class="item">
+<div *ngFor="let item of items; let i = index" class= "items-list">
+  <div class="item" [routerLink]="['view', i]">
     <div class="item-image">
       <img src="{{ item.imgSrc }}">
     </div>
@@ -8,3 +8,4 @@
 {{ item.category }}
   </div>
 </div>
+

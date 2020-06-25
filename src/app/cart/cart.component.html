@@ -1,0 +1,15 @@
+<div *ngIf="cartItems.length > 0">Hind kokku: {{ sumOfCart }} $</div>
+<div *ngIf="cartItems.length < 1">Ostukorvis tooteid ei ole</div>
+<br>
+
+<div *ngFor="let cartItem of cartItems; let i = index">
+  <div>{{ cartItem.title }}</div>
+  <div class="item-image">
+    <img src="{{ cartItem.imgSrc }}">
+  </div>
+{{ cartItem.title }}
+{{ cartItem.price }}
+
+<button (click)="onRemoveFromCart(i)">Eemalda</button>
+</div>
+

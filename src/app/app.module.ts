@@ -6,17 +6,29 @@ import { MenuComponent } from './menu/menu.component';
 import { ItemsListComponent } from './items-list/items-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ItemViewComponent } from './items-list/item-view/item-view.component';
+import { RouterModule } from '@angular/router';
+import { ToastService, AngularToastifyModule } from 'angular-toastify';
+import { CartComponent } from './cart/cart.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     ItemsListComponent,
-    FooterComponent
+    FooterComponent,
+    ItemViewComponent,
+    CartComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    AngularToastifyModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
