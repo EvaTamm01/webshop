@@ -12,6 +12,8 @@ import { ToastService, AngularToastifyModule } from 'angular-toastify';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
+//import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ItemViewComponent,
     CartComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     AngularToastifyModule,
     FormsModule
+    //MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

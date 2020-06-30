@@ -1,0 +1,22 @@
+<form (ngSubmit)="onRegistrate(registrationForm)" #registrationForm="ngForm">
+<label>Eesnimi</label>
+<input ngModel name="firstName" class="textInput" type="text" required>
+<br>
+<label>Perekonnanimi</label>
+<input ngModel name="lastName" class="textInput" type="text" required>
+<br>
+<label>Telefoninumber</label>
+<input ngModel name="phoneNumber" class="textInput" type="number" required>
+<br>
+<label>Emaili-aadress</label>
+<input ngModel name="email" class="textInput" type="email" required>
+<br>
+<label>Kasutajanimi</label>
+<input ngModel name="username" class="textInput" type="text" required>
+<br>
+<label>Parool</label>
+<input ngModel name="password" class="textInput" type="password" [required]=true>
+<br>
+<input [disabled]="!registrationForm.valid" type="submit" value="REGISTREERU">
+</form>
+
