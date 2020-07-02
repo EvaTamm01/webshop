@@ -1,1 +1,29 @@
-<p>new-item works!</p>
+<form (ngSubmit)="onNewItem(newItemForm)" 
+#newItemForm="ngForm">
+  <label>Toote pealkiri</label>
+  <input ngModel name="title" class="textInput" type="text" required>
+  <br>
+  <label>Toote pilt</label>
+  <input ngModel name="imgSrc" class="textInput" type="file">
+  <br>
+  <label>Toote hind</label>
+  <input ngModel name="price" class="textInput" type="number" required>
+  <br>
+  <label>Toote kategooria</label>
+  <input ngModel name="category" class="textInput" type="text" required>
+  <br>
+  
+  <input [disabled]="!newItemForm.valid" type="submit" value="LISA UUS TOODE">
+  </form>
+  
+  <lib-toastify-toast-container 
+  [position]="'top-right'"  
+  [transition]="'bounce'"
+  [autoClose]="5000"
+  [hideProgressBar]="false"
+  [newestOnTop]="false"
+  [closeOnClick]="true"
+  [pauseOnHover]="true"
+  [pauseOnVisibilityChange]="true"
+  
+  ></lib-toastify-toast-container>
