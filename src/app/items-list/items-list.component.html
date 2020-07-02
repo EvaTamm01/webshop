@@ -1,21 +1,21 @@
-<!--<h4>Basic mat-select</h4>
+<h4>Basic mat-select</h4>
 <mat-form-field appearance="fill">
-  <mat-label>Vali kategooria</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let item of items" [value]="item.category">
+  <mat-label>{{ 'Vali kategooria' }}</mat-label>
+  <mat-select [(ngModel)]="chosenCategory">
+    <mat-option [value]="">{{'Kõik'}}</mat-option>
+    <mat-option *ngFor="let item of items | unique" [value]="item.category">
       {{item.category}}
     </mat-option>
   </mat-select>
-</mat-form-field> -->
+</mat-form-field> 
 
-<div *ngFor="let item of items; let i = index" class= "items-list">
+<div *ngFor="let item of items | filterByCategory:chosenCategory; let i = index" class= "items-list">
   <div class="item" [routerLink]="['view', i]">
     <div class="item-image">
       <img src="{{ item.imgSrc }}">
     </div>
 {{ item.title }}
 {{ item.price }}
-{{ item.category }}
   </div>
 </div>
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../auth/auth.service';
+import { ToastService } from 'angular-toastify';
 
 @Component({
   selector: 'app-registration',
@@ -8,13 +10,16 @@ import { NgForm } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private _toastService: ToastService,) { }
 
   ngOnInit(): void {
   }
 
   onRegistrate(registrationForm: NgForm) {
-    console.log(registrationForm.value);
+    this.authService.saveNewUser(registrationForm.value);
+    registrationForm.reset();
+    this._toastService.success("Edukalt registreeritud");
+    
   }
 
 }

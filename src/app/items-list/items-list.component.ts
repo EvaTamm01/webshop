@@ -9,6 +9,7 @@ import { Item } from './item.model';
 })
 export class ItemsListComponent implements OnInit {
   items: Item[];
+  chosenCategory: string;
 
   constructor(private itemService: ItemService) { }
 

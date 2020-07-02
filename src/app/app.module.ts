@@ -13,7 +13,13 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegistrationComponent } from './registration/registration.component';
-//import { MatSelectModule } from '@angular/material/select';
+import { AuthComponent } from './auth/auth.component';
+import { AdminComponent } from './admin/admin.component';
+import { NewItemComponent } from './admin/new-item/new-item.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { UniquePipe } from './items-list/unique.pipe';
+import { FilterByCategoryPipe } from './items-list/filter-by-category.pipe';
 
 @NgModule({
   declarations: [
@@ -24,15 +30,21 @@ import { RegistrationComponent } from './registration/registration.component';
     ItemViewComponent,
     CartComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AuthComponent,
+    AdminComponent,
+    NewItemComponent,
+    UniquePipe,
+    FilterByCategoryPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     AngularToastifyModule,
-    FormsModule
-    //MatSelectModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

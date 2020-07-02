@@ -5,6 +5,8 @@ import { ItemsListComponent } from './items-list/items-list.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { AdminComponent } from './admin/admin.component';
+import { NewItemComponent } from './admin/new-item/new-item.component';
 
  // sets up routes constant where you define your routes
 const routes: Routes = [
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registrate', component: RegistrationComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/new-item', component: NewItemComponent },
 ];
 // configures NgModule imports and exports
 @NgModule({
