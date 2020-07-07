@@ -1,7 +1,11 @@
+<div class="error">{{ error }}</div>
+<br>
+<br>
+
 <form #loginForm="ngForm">
   <label>Kasutajanimi</label>
-  <input type="text">
+  <input ngModel name="username" type="text">
   <label>Parool</label>
-  <input type="password">
-  <button (click)="onLogin()">LOGI SISSE</button>
+  <input ngModel name="password" type="password">
+  <button (click)="onLogin(loginForm)">LOGI SISSE</button>
 </form>

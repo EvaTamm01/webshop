@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { UniquePipe } from './items-list/unique.pipe';
 import { FilterByCategoryPipe } from './items-list/filter-by-category.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { FilterByCategoryPipe } from './items-list/filter-by-category.pipe';
     AngularToastifyModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

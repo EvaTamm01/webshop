@@ -18,12 +18,12 @@ export class NewItemComponent implements OnInit {
   }
 
   onNewItem(newItemForm: NgForm) {
-    newItemForm.reset();
     this._toastService.success("Edukalt uus toode lisatud");
-    //this.itemService.addItem(new Item(
-      //newItemForm.value.imgSrc, 
-      //newItemForm.value.title, 
-      //newItemForm.value.price, 
-      //newItemForm.value.category));
+    this.itemService.addItem(new Item(
+      newItemForm.value.imgSrc, 
+      newItemForm.value.title, 
+      newItemForm.value.price, 
+      newItemForm.value.category));
+      newItemForm.reset();
   }
 }

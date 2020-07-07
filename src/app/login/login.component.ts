@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
+import { AuthService, AuthResponseData } from '../auth/auth.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -8,16 +10,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  error: string;
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    let users = this.authService.getAllUsers();
-    console.log(users);
+    //let users = this.authService.getAllUsers();
+    //console.log(users);
   }
 
-  onLogin() {
-    this.router.navigateByUrl("/admin");
+  onLogin(loginForm: NgForm) {
+    let authObs: Observable<AuthResponseData>;
+    authObs = this.authService.login(loginForm.value.username, loginForm.value.password);
+    authObs.subscribe(resData => {
+      this.router.navigateByUrl("/admin");
+    }, error => {
+      this.error = error;
+      
+    });
+    
+    
+    
   }
 
 }
