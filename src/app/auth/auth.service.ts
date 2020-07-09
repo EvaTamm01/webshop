@@ -21,6 +21,7 @@ export interface AuthResponseData {
   providedIn: 'root'
 })
 export class AuthService {
+  userData: string;
   admin = new BehaviorSubject<Admin>(null);
   private tokenExpirationTimer: any;
 
@@ -74,7 +75,7 @@ export class AuthService {
       id: string;
       _token: string;
       _tokenExpirationDate: string;
-    } = JSON.parse(localStorage.getItem('userData'));
+    } = JSON.parse(localStorage.getItem('dataOfUser'));
     if (!userData) {
       return;
     }
@@ -98,7 +99,7 @@ export class AuthService {
   logout() {
     this.admin.next(null);
     this.router.navigate(['/']);
-    localStorage.removeItem('userData');
+    localStorage.removeItem('dataOfUser');
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
     }
@@ -121,7 +122,7 @@ export class AuthService {
     const admin = new Admin(email, userId, token, expirationDate);
     this.admin.next(admin);
     this.autoLogout(expiresIn * 1000);
-    localStorage.setItem('userData', JSON.stringify(admin));
+    localStorage.setItem('dataOfUser', JSON.stringify(admin));
   }
 
 

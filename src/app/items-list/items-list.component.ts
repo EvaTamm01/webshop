@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from './item.service';
 import { Item } from './item.model';
+import { DatabaseService } from '../database/database.service';
 
 @Component({
   selector: 'app-items-list',
@@ -10,18 +11,31 @@ import { Item } from './item.model';
 export class ItemsListComponent implements OnInit {
   items: Item[];
   chosenCategory: string;
+  userData: string;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService, private databaseService: DatabaseService) { }
 
   ngOnInit(): void {
-    console.log(this.items);
-    this.items = this.itemService.getItems();
-    console.log(this.items);
-
-    let i;
-    for (i=0; i<this.items.length; i++) {
-      console.log(i);
+    
+    this.databaseService.fetchItems().subscribe(items => {
+      let allItems = items;
+      this.items = allItems;
+    },
+    error => {
+      console.log(error);
     }
+    );
+    
+    console.log(localStorage.getItem("dataOfUser"));
+    this.userData = localStorage.getItem("dataOfUser");
+    if (this.userData) {
+      console.log("on olemas");
+      
+    }else {
+      console.log("ei ole olemas");
+    }
+    
+    
   }
 
 }

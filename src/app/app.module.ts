@@ -21,6 +21,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { UniquePipe } from './items-list/unique.pipe';
 import { FilterByCategoryPipe } from './items-list/filter-by-category.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { DatabaseComponent } from './database/database.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
     AdminComponent,
     NewItemComponent,
     UniquePipe,
-    FilterByCategoryPipe
+    FilterByCategoryPipe,
+    DatabaseComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
