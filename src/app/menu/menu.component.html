@@ -1,9 +1,18 @@
 <div class="menu">
   <img routerLink="/" class="menu-logo" src="assets\menu-images\header-logo.png">
+
+  
   <div>
-    <div routerLink="/login">sisselogimine</div>
-    <div routerLink="/registrate">registreerumine</div>
+
+      <div *ngIf="isAuthenticated" routerLink="admin/new-item" >Lisa uusi esemeid</div>
+  </div>
+  <div>
+    <div *ngIf="!isAuthenticated" routerLink="/login"><img src="assets\menu-images\login.svg" 
+       
+      class="menu-image">
+    </div>
+    <div *ngIf="!isAuthenticated" routerLink="/registrate">registreerumine</div>
     <div routerLink="/cart">ostukorv</div>
-    <div (click)="onLogout()">logi välja</div>
+    <div *ngIf="isAuthenticated" (click)="onLogout()">logi välja</div>
   </div>
 </div>

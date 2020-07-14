@@ -12,11 +12,14 @@ import { ItemService } from '../items-list/item.service';
 })
 export class MenuComponent implements OnInit {
   userData: string;
+  isAuthenticated: boolean = false;
 
   constructor(private authService: AuthService, private router: Router ) { }
 
   ngOnInit(): void {
-    
+    this.authService.admin.subscribe(admin=>{
+      this.isAuthenticated = !!admin;
+    })
   }
 
   onLogout() {

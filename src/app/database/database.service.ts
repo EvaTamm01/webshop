@@ -46,15 +46,19 @@ export class DatabaseService {
     }
 
     fetchItems() {
-      console.log("fetchib");
-        return this.http.get<{ [key: string]: Item }>('https://evakewebshop.firebaseio.com/items.json')
-            // .pipe((map(projects => {
-            //     return projects.map(project => {
-            //         return {...project, comments: project.comments ? project.comments : []}
-            //     })
-            // })))
+        if (false) {
+          // const itemsArray: Item[] = JSON.parse(localStorage.getItem("items"));
+        
+          // console.log("VÕTSIN LOCAL STORAGE'ist");
+          // this.items = itemsArray;
+          // return itemsArray;
+
+        } else {
+
+          return this.http.get<{ [key: string]: Item }>('https://evakewebshop.firebaseio.com/items.json')
+            
             .pipe(map(responseData=> {
-              console.log("SIIA");
+              
               const itemsArray: Item[] = [];
               for (const key in responseData) {
                 if(responseData.hasOwnProperty(key)) {
@@ -62,8 +66,17 @@ export class DatabaseService {
                 }
               }
               this.items = itemsArray;
+              localStorage.setItem("items", JSON.stringify(itemsArray));
+              console.log("PANIN LOCAL STORAGE'isse");
               return itemsArray;
             }));
+
+
+        }
+
+
+
+        
     }
 
     saveItems(items: Item[]) {

@@ -11,3 +11,8 @@
 .menu-logo {
   width: 100px;
 }
+
+.menu-image {
+  height: 30px;
+  cursor: pointer;
+}

@@ -2,27 +2,33 @@
 <br>
 <br>
 
-<form (ngSubmit)="onRegistrate(registrationForm)" #registrationForm="ngForm">
-<!-- <label>Eesnimi</label>
-<input ngModel name="firstName" class="textInput" type="text" required>
-<br>
-<label>Perekonnanimi</label>
-<input ngModel name="lastName" class="textInput" type="text" required>
-<br>
-<label>Telefoninumber</label>
-<input ngModel name="phoneNumber" class="textInput" type="number" required>
-<br>
-<label>Emaili-aadress</label>
-<input ngModel name="email" class="textInput" type="email" required>
-<br> -->
-<label>Kasutajanimi</label>
-<input ngModel name="username" class="textInput" type="text" required>
-<br>
-<label>Parool</label>
-<input ngModel name="password" class="textInput" type="password" [required]=true>
-<br>
-<input [disabled]="!registrationForm.valid" type="submit" value="REGISTREERU">
-</form>
+
+<div class="wrapper">
+	<div class="container">
+		<h1>Welcome</h1>
+    
+    <form (ngSubmit)="onRegistrate(registrationForm)" #registrationForm="ngForm" class="form">
+
+		
+			<input ngModel name="username" type="text" placeholder="Username" required>
+			<input ngModel name="password" type="password" placeholder="Password" required>
+			<button type="submit" id="login-button">Login</button>
+		</form>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
 
 <lib-toastify-toast-container 
 [position]="'bottom-right'"  

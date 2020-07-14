@@ -23,14 +23,23 @@ export class ItemService {
   getItems(): Item[] {
     console.log(this.items);
     
+    this.databaseService.fetchItems().subscribe(
+      items => {
+        this.items = items;
+      },
+      error => {
+        console.log(error);
+      }
+    )
     
     //this.items = this.databaseService.items;
     console.log(this.items);
     return this.items.slice();
   }
 
-  getItem(index: number): Item {
-    return this.items[index];
+  getItem(index: string): Item {
+    this.getItems();
+    return this.items.find(item => item.firebaseId === index);
   }
 
   addItem(item: Item): void {

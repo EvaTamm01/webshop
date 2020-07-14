@@ -1,5 +1,10 @@
 .items-list {
+  display: flex;
+  justify-content: space-around;
   max-width: 1000px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 .item {
@@ -29,6 +34,11 @@
 }
 
 .item-image img {
-  
+  padding: 15px;
   height: 150px;
+  width: 150px;
+}
+
+.item p {
+  padding: 15px;
 }

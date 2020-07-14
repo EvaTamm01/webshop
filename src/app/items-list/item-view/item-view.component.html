@@ -1,10 +1,11 @@
-<h3>Vaatad toodet: {{ item.title }}</h3>
-<br>
-<div><img src="{{ item.imgSrc }}"></div>
-<br>
-<div>Toote hind on: {{ item.price }}</div>
-<button class="btn btn-primary" (click)="addToCart()">LISA OSTUKORVI</button>
-
+<div class="item-view">
+  <h3>Vaatad toodet: {{ item.title }}</h3>
+  <br>
+  <div><img src="{{ item.imgSrc }}"></div>
+  <br>
+  <div>Toote hind on: {{ item.price }}</div>
+  <button class="btn-fancy" (click)="addToCart()">LISA OSTUKORVI</button>
+  </div>
 <lib-toastify-toast-container 
 [position]="'bottom-right'"  
 [transition]="'bounce'"
